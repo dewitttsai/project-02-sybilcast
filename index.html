@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
     <link rel="stylesheet" href="assets/css/smoothproducts.css">
+    <link rel="stylesheet" href="assets/css/style.css"
 
     <!-- Underscore for groupby -->
     <script type="text/javascript" src= 
@@ -19,20 +20,23 @@
 
 <body>
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-        <div class="container"><a class="navbar-brand logo" href="index.html">LA Crime Trends</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand logo" href="index.html"><h1>SYBILCAST</h1><h6>LA Crime Trends</h6></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse"
                 id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="features.html">Features</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="about-us.html">About Us</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#goto-concept">Concept</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#goto-analysis">Analysis</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#goto-aboutus">About Us</a></li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    <button onclick="topFunction()" id="homebutton" title="Go to top">Top</button>
+
     <!-- <main class="page landing-page"> -->
-        <section class="clean-block clean-hero" style="background-image: url(&quot;assets/img/crime_index%20copy.jpg&quot;);color: rgba(9, 162, 255, 0.85);height: 118px;">
+        <section class="clean-block clean-hero" style="background-image: url(&quot;assets/img/crime_index%20copy.jpg&quot;);color: rgba(9, 162, 255, 0.60);height: 118px;">
             <div class="text">
                 <h2>Does Weather Affect Crime Rates</h2>
                 <p>Explore below by choosing a year....</p>
@@ -87,7 +91,7 @@
                             </div>
                         </div>
                     <div class="row">
-                            <div id = "scatter" style="padding-right:30px" class="col-md-6 col-lg-6 col-sm-6">
+                            <div id = "horibar" style="padding-right:30px" class="col-md-6 col-lg-6 col-sm-6">
                                 <p>Graph 1 Here</p>
                                 <!-- <div id="chartdiv" style="width: 100%; height: 400px; background-color: #282828;" ></div> -->
                             </div>
@@ -135,7 +139,7 @@
 
 
         <section class="clean-block about-us">
-            <div class="container">
+            <div class="container" id="goto-aboutus">
                 <div class="block-heading">
                     <h2 class="text-info">About Us</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
@@ -188,9 +192,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-3 col-md-3 offset-md-4 mx-auto">
-                    <h5>View on Github</h5>
+                    <h5>Want to contribute?</h5>
                     <ul>
-                        <li class="text-left"><a href="#">Github Link</a></li>
+                        <li class="text-left"><a href="https://github.com/dweidash/project-02-sybilcast">Join the Github!</a></li>
                     </ul>
                 </div>
             </div>
@@ -207,8 +211,10 @@
 
     <!-- Dependencies -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
-      <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-      <script src="./static/js/app.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="./static/js/app.js"></script>
+
+
 </body>
 
 </html>

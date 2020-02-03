@@ -1,3 +1,29 @@
+//DT - SECTION START
+
+    //Get the button
+    var mybutton = document.getElementById("homebutton");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+    }
+
+
+
+//MI - SECTION START
+
 // Call getBar(), getTemp(), and getTime() functions to change the bar chart, the temperature headers, and the by time of day line chart upon selection of id in dropdown menu
 function optionChanged(id) {
     getBar(id);
@@ -135,7 +161,7 @@ function getBar(id) {
             }
         }; // Ends layout
     
-        Plotly.newPlot('scatter',data1,layout)
+        Plotly.newPlot('horibar',data1,layout)
 
     })// Ends d3.csv()
 

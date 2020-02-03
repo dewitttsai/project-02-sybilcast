@@ -48,7 +48,7 @@ function init() {
                     mode: 'markers'
                 }
                 var data1 = [trace1];
-                Plotly.newPlot('scatter',data)
+                Plotly.newPlot('horibar',data)
                 
                 // date_occ = data.map(x => x["DATE OCC"])
                 // // time_occ = data.map(x => x["TIME OCC"])
