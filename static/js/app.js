@@ -1,12 +1,97 @@
-// Call updatePlotly2 and updateDemoInfo functions to change the bar chart, bubble chart, demographic info, and gauge chart upon selection of id in dropdown menu
+// Call getBar(), getTemp(), and getTime() functions to change the bar chart, the temperature headers, and the by time of day line chart upon selection of id in dropdown menu
 function optionChanged(id) {
-    goToNewPage(id);
+    getBar(id);
     getTemp(id)
+    getTime(id)
 
 };
 
+// Change the plot per time of day
+function getTime(id) {
+    d3.csv(`Output_PerDate/MaxTemps/crimeData_maxTemp_${id}.csv`).then((data) => {
+        var eachTime = _.groupBy(data,'Time');
+        // console.log(eachTime)
+        // console.log(eachTime)
+        data.forEach(function(data) {
+            data.Time = +data.Time;
+        });
+        console.log(data.map(x=>x['Time']))
+        var counts = [];
+        var times = [];
+        for(var key in eachTime) {
+            var value = eachTime[key];
+            times.push(key);
+            // console.log(key)
+            counts.push(value.length)
+        
+            // do something with "key" and "value" variables
+        }
+        console.log(times.map((d,i)=>i))
+        // console.log(counts)
+        var traceTime = {
+            x : times,
+            y: counts,
+            name : 'Max',
+            line : {color:'rgba(255, 0, 0, 0.6)'}
+        }
+        d3.csv(`Output_PerDate/MinTemps/crimeData_minTemp_${id}.csv`).then((data) => {
+
+            var eachTime2 = _.groupBy(data,'Time');
+        // console.log(eachTime)
+        // console.log(eachTime)
+            data.forEach(function(data) {
+                data.Time = +data.Time;
+            });
+            console.log(data.map(x=>x['Time']))
+            var counts2 = [];
+            var times2 = [];
+            for(var key in eachTime2) {
+                var value2 = eachTime2[key];
+                times2.push(key);
+                // console.log(key)
+                counts2.push(value2.length)
+            
+            }; //Ends for
+            console.log(times.map((d,i)=>i))
+            // console.log(counts)
+            var traceTime2 = {
+                x : times2,
+                y: counts2,
+                name : 'Min',
+                line : {color:'SlateBlue'}
+            };
+            var layoutTime = {
+                title : {
+                    text: 'Count of Crimes per Time of Day'
+                },
+                height: 500,
+                xaxis : {
+                    title: {
+                        text: "Time"
+                    },
+                    // tickvals : times.map((d,i)=>i),
+                    // ticktext : times.map(d=>d)
+                    tickmode: "linear",
+                    tick0 : 0,
+                    dtick: 100,
+                    nticks : 2400
+                },
+                yaxis : {
+                    title: {
+                        text: "Count of Crimes"
+                    }
+                }
+
+        };
+        dataTime = [traceTime, traceTime2];
+        Plotly.newPlot('time-graph',dataTime, layoutTime)
+        
+    });// Ends d3.csv(Output_PerDate/MinTemps/..2010)
+    });// Ends d3.csv(Output_PerDate/MaxTemps/..2010)
+};//Ends getTime() function
+
 // Change the bar chart upon selection of year
-function goToNewPage(id) {
+function getBar(id) {
     d3.csv(`Output_PerDate/CodeCounts/crimeCounts_${id}.csv`).then((data) => {
         data.forEach(function(data) {
             data.Code = +data.Code;
@@ -16,23 +101,19 @@ function goToNewPage(id) {
         // console.log(data['Max_Count'])
         
         var trace1 = {
-            // x : data.map((d,i)=>i),
             x : data.map(x=>x['Max_Count']),
-            // y: data.map(x=>x["Code"]),
             y : data.map((d,i)=>i*3),
             name: 'Max Temp',
             type:'bar',
             orientation: 'h',
-        };
+        };//Ends trace1
         var trace2 = {
-            // x : data.map((d,i)=>i),
             x : data.map(x=>+x['Min_Count']),
-            // y: data.map(x=>x["Code"]),
             y : data.map((d,i)=>i*3),
             name: 'Min Temp',
             type:'bar',
             orientation: 'h',
-        };
+        };// Ends trace2
         var data1 = [trace1, trace2]
         var layout = {
             barmode:'group',
@@ -44,28 +125,22 @@ function goToNewPage(id) {
                 title: {
                     text: "Crime Code"
                 },
-                // tickmode: "linear",
-                // tick0 : 0,
-                // dtick: 2,
-                // nticks : data.length*2,
                 tickvals : data.map((d,i)=>i*3),
                 ticktext : data.map(x=>x["Code"])
-
-    
-    
             },// Ends yaxis
             xaxis : {
                 title: {
                     text: "Count of Crimes"
                 }
             }
-        }
+        }; // Ends layout
     
         Plotly.newPlot('scatter',data1,layout)
 
     })// Ends d3.csv()
 
-}
+};// Ends getBar(id) function
+
 function getTemp(id) {
     // Update the header text
     d3.select('#year_top').selectAll('h2').text(`${id}`)
@@ -91,7 +166,6 @@ function getTemp(id) {
                 yearData = data.filter(x => x.Year === id)
                 low_temps.enter().append('h5')
                     .merge(low_temps)
-                    // .append('h4')
                     .text('Low Temperature')
                     .append('h5')
                     .html(`${yearData[0]["Date"]}<br> ${yearData[0][minF]} degrees F`)
@@ -113,7 +187,7 @@ function init() {
         console.log(data.Year)
         var maxF = Object.keys(data[0])[3]
         console.log(Object.keys(data[0])[3])
-        // Create array to hold all names (all ID names)
+        // Create array to hold all years
         var years = data.map(x=>x.Year)
 
         // Header text:
@@ -121,15 +195,11 @@ function init() {
         d3.select('#year_top').selectAll('p').append('p').text('Explore the data for 2010')
 
         // // Append an option in the dropdown for each name in names (each ID name)
-        // d3.select('#selDataset')
-        //         .append('option')
-        //         .text('Select')
         years.forEach(function(year) {
             d3.select('#selDataset')
                 .append('option')
                 .text(year)
-                // .property("http://www.google.com")//?????? Use the property function????
-                // .value("http://www.google.com");
+
             });
             var high_temps = d3.select('#high_temp').selectAll('h5').data([data[0]])
             var low_temps = d3.select('#low_temp').selectAll('h5').data([data[0]])
@@ -137,7 +207,6 @@ function init() {
     
             high_temps.enter().append('h5')
                 .merge(high_temps)
-                // .append('h5')
                 .text('High Temperature')
                 .append('h4')
                 .html(`${data[0]["Date"]}<br> ${data[0][maxF]} degrees F`)
@@ -161,70 +230,12 @@ function init() {
         
         
  
-}); //Ends d3.json
-d3.csv('Output_PerDate/CodeCounts/crimeCounts_2010.csv').then((data) => {
-    // console.log(data.map(x=>+x['Max_Count']))
-    console.log(data.map((d,i)=>i*2))
-    console.log(data.length)
-    data.forEach(function(data) {
-        data.Code = +data.Code;
-        data.Max_Count = +data.Max_Count;
-        data.Min_Count = +data.Min_Count;
-    });
-    // console.log(data['Max_Count'])
-    
-    var trace1 = {
-        // x : data.map((d,i)=>i),
-        x : data.map(x=>x['Max_Count']),
-        // y: data.map(x=>x["Code"]),
-        y : data.map((d,i)=>i*3),
-        name: 'Max Temp',
-        type:'bar',
-        orientation: 'h',
- 
-    };
-    var trace2 = {
-        // x : data.map((d,i)=>i),
-        x : data.map(x=>+x['Min_Count']),
-        // y: data.map(x=>x["Code"]),
-        y : data.map((d,i)=>i*3),
-        name: 'Min Temp',
-        type:'bar',
-        orientation: 'h',
+    }); //Ends d3.json
+    // Call 2010 for init getBar
+    getBar(2010)
 
-    };
-    var data1 = [trace1, trace2]
-    var layout = {
-        barmode:'group',
-        height:1000,
-        title : {
-            text: 'Count of Crimes per Crime Code'
-        },
-        yaxis : {
-            title: {
-                text: "Crime Code"
-            },
-            // tickmode: "linear",
-            // tick0 : 0,
-            // dtick: 2,
-            // nticks : data.length*2,
-            tickvals : data.map((d,i)=>i*3),
-            ticktext : data.map(x=>x["Code"])
-            // font: {
-            //     size:8
-            // }
-
-
-        },// Ends yaxis
-        xaxis : {
-            title: {
-                text: "Count of Crimes"
-            }
-        }
-    }
-
-    Plotly.newPlot('scatter',data1,layout)
-})
+    // Call 2010 for init getTime
+    getTime(2010)
 }; // Ends init() function
 
 
