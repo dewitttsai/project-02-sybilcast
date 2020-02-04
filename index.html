@@ -11,16 +11,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
     <link rel="stylesheet" href="assets/css/smoothproducts.css">
     <link rel="stylesheet" href="assets/css/style.css"
-
 </head>
 
 <body>
+    <button onclick="topFunction()" id="homebutton" title="Go to top">Top</button>
+
+<!-- START SECTION: NAVIGATION BAR-->
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-        <div class="container"><a class="navbar-brand logo" href="index.html"><h1>SYBILCAST</h1><h6>LA Crime Trends</h6></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand logo" href="index.html">SYBILCAST</a>LA Crime Trends<button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse"
                 id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#goto-home">Home</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#goto-concept">Concept</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#goto-analysis">Analysis</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#goto-aboutus">About Us</a></li>
@@ -28,16 +30,18 @@
             </div>
         </div>
     </nav>
+<!-- END SECTION: NAVIGATION BAR -->
 
-    <button onclick="topFunction()" id="homebutton" title="Go to top">Top</button>
-
-    <!-- <main class="page landing-page"> -->
-    <section class="clean-block clean-hero" style="background-image: url(&quot;assets/img/crime_index%20copy.jpg&quot;);color: rgba(9, 162, 255, 0.60);height: 118px;">
+<!-- START SECTION: CONCEPT -->
+<br id="goto-concept">
+<div>
+    <section class="clean-block clean-hero" style="background-image: url(&quot;assets/img/crime_index%20copy.jpg&quot;);color: rgba(9, 162, 255, 0.60);height: 118px;" id="goto-home">
         <div class="text">
             <h2>Does Weather Affect Crime Rates</h2>
             <p>Explore below by choosing a year....</p>
         </div>
     </section>
+    
     <section style="padding-bottom:10px;"class="clean-block clean-info light"> <!--//style="height: 300px;"-->
         <div class="container">
             <div class="block-heading">
@@ -46,121 +50,183 @@
             </div>
         </div>
     </section>
-        <!-- <div class="container"> -->
-            <!-- <main class="page gallery-page"> -->
-                <section class="clean-block clean-info dark">
-                <div class="container">
-                        <div style="padding-top:10px" id = "year_top" class="block-heading">
-                            <h2 class="text-info"></h2>
-                            <p></p> 
-                            <div style = "padding-top:20px" class = "row">
-                                <div id = "high_temp"class='col-lg-6 col-md-6'>
-        
-                                </div>
-                                <div id = "low_temp" class='col-lg-6 col-md-6'>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    <div class="row">
-                            <div id = "horibar" style="padding-right:30px" class="col-md-6 col-lg-6 col-sm-6">
-                                <p>Graph 1 Here</p>
-                                <!-- <div id="chartdiv" style="width: 100%; height: 400px; background-color: #282828;" ></div> -->
-                            </div>
-                            <div class="col-md-6 col-lg-6 col-sm-6">
-                                <div class="row">
-                                    <div id = "time-graph" style="padding-left:30px" class="col-md-12 col-lg-12 col-sm-12">
-                                        <p>Graph 2 Here</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 col-lg-12 col-sm-12">
-                                        <p style="background-color:pink;padding:20px;margin-left:30px">Graph 3 Here</p>
-                                        
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 col-lg-12 col-sm-12">
-                                        <p style="background-color:lightseagreen;padding:20px;margin-left:30px">Graph 4 Here</p>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            
-                                <!-- <div id = "time-graph" style="padding-left:30px" class="col-md-6 col-lg-6 col-sm-6">
-                                    <p>Graph 2 Here</p>
-                                </div> -->
-                            
-                            
-                                <!-- <div id = "other-graph" style="padding-left:30px" class="col-md-6 col-lg-6 col-sm-6">
-                                    <p>Graph 3 Here</p>
-                                </div> -->
-                        </div>
-                    </div>
-                        <!-- <div class="row">
-                            <div class="col-md-6 col-lg-6 col-sm-6">
-                                <p>Graph 3 Here</p>
-                            </div>
-                            <div class="col-md-6 col-lg-6 col-sm-6">
-                                <p>Graph 4 Here</p>
-                            </div>
-                        </div> -->
-                    </div>
-                </section>
-            <!-- </main> -->
 
+    <section class="clean-block clean-info dark">
+        <div class="container">
+            <div class="block-heading">
+                <h2 class="text-info">Hi there, this is a bit dim.</h2>
+            </div>
+        </div>
+    </section>
 
-        <section class="clean-block about-us">
-            <div class="container" id="goto-aboutus">
+    <!-- <main class="page landing-page"> -->
+    <section class="clean-block clean-hero" style="background-image: url(&quot;assets/img/crime_index%20copy.jpg&quot;);color: rgba(9, 162, 255, 0.60);height: 118px;">
+        <div class="text">
+            <h2>Does Weather Affect Crime Rates</h2>
+            <p>Explore below by choosing a year....</p>
+        </div>
+    </section>
+</div>
+<!-- END SECTION: CONCEPT -->
+
+<!-- START SECTION: ANALYSIS -->
+    <br id="goto-analysis">
+    <div>
+
+        <!-- Year Select to be fed into app.js to initialize plotly functions -->
+        <section style="padding-bottom:10px;"class="clean-block clean-info light">
+
+            <div class="container">
                 <div class="block-heading">
-                    <h2 class="text-info">About Us</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+                    <h2 class="text-info">Choose a year between 2010-2019:</h2>
+                    <select id="selDataset" onchange="optionChanged(this.value)"></select>
                 </div>
-                <div class="row justify-content-center">
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar1.jpg">
-                            <div class="card-body info">
-                                <h4 class="card-title">Morgan Ivey</h4>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i class="icon-social-instagram"></i></a><a href="#"><i class="icon-social-twitter"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar2.jpg">
-                            <div class="card-body info">
-                                <h4 class="card-title">Arthur&nbsp;Adjamoglian</h4>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i class="icon-social-instagram"></i></a><a href="#"><i class="icon-social-twitter"></i></a></div>
-                            </div>
-                        </div>
+            </div>
+
+        </section>
+
+        <section class="clean-block clean-info dark">
+
+            <div class="container">
+
+                <!-- SECTION: ANALYSIS, SUB: TEMPERATURE -->
+                <div style="padding-top:10px" id = "year_top" class="block-heading">
+                    <h2 class="text-info"></h2>
+                    <p></p> 
+                    <div style = "padding-top:20px" class = "row">
+                        <div id = "high_temp"class='col-lg-6 col-md-6'></div>
+                        <div id = "low_temp" class='col-lg-6 col-md-6'></div>
                     </div>
                 </div>
-                    <div class="row justify-content-center">
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar3.jpg">
-                            <div class="card-body info">
-                                <h4 class="card-title">DeWitt Tsai</h4>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i class="icon-social-instagram"></i></a><a href="#"><i class="icon-social-twitter"></i></a></div>
+                
+                <!-- SECTION: ANALYSIS, SUB: GRAPHS -->
+                <div class="row">
+
+                    <div id = "horibar" style="padding-right:30px" class="col-md-6 col-lg-6 col-sm-6">
+                        <p>Graph 1 Here</p>
+                        <!-- <div id="chartdiv" style="width: 100%; height: 400px; background-color: #282828;" ></div> -->
+                    </div>
+
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+
+                        <div class="row">
+                            <div id = "time-graph" style="padding-left:30px" class="col-md-12 col-lg-12 col-sm-12">
+                                <p>Graph 2 Here</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar3.jpg">
-                            <div class="card-body info">
-                                <h4 class="card-title">Ally Sanders</h4>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i class="icon-social-instagram"></i></a><a href="#"><i class="icon-social-twitter"></i></a></div>
+
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12 col-sm-12">
+                                <p style="background-color:pink;padding:20px;margin-left:30px">Graph 3 Here</p>
+                                
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12 col-sm-12">
+                                <p style="background-color:lightseagreen;padding:20px;margin-left:30px">Graph 4 Here</p>
+                                
+                            </div>
+                        </div>
+
                     </div>
+                    
+                        <!-- <div id = "time-graph" style="padding-left:30px" class="col-md-6 col-lg-6 col-sm-6">
+                            <p>Graph 2 Here</p>
+                        </div> -->
+                    
+                    
+                        <!-- <div id = "other-graph" style="padding-left:30px" class="col-md-6 col-lg-6 col-sm-6">
+                            <p>Graph 3 Here</p>
+                        </div> -->
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>  
+<!-- END SECTION: ANALYSIS-->
+
+
+            <!-- <div class="row">
+                <div class="col-md-6 col-lg-6 col-sm-6">
+                    <p>Graph 3 Here</p>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6">
+                    <p>Graph 4 Here</p>
+                </div>
+            </div> -->
+
+
+<!-- START SECTION: ABOUT US -->
+    <br id="goto-aboutus">
+    <section class="clean-block about-us">
+        <div class="container">
+
+            <div class="block-heading">
+                <h2 class="text-info">About Us</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar1.jpg">
+                        <div class="card-body info">
+                            <h4 class="card-title">Morgan Ivey</h4>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i class="icon-social-instagram"></i></a><a href="#"><i class="icon-social-twitter"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar2.jpg">
+                        <div class="card-body info">
+                            <h4 class="card-title">Arthur&nbsp;Adjamoglian</h4>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i class="icon-social-instagram"></i></a><a href="#"><i class="icon-social-twitter"></i></a></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+
+            <div class="row justify-content-center">
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar3.jpg">
+
+                        <div class="card-body info">
+                            <h4 class="card-title">DeWitt Tsai</h4>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i class="icon-social-instagram"></i></a><a href="#"><i class="icon-social-twitter"></i></a></div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar3.jpg">
+
+                        <div class="card-body info">
+                            <h4 class="card-title">Ally Sanders</h4>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i class="icon-social-instagram"></i></a><a href="#"><i class="icon-social-twitter"></i></a></div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+<!-- END SECTION: ABOUT US -->
+
+
+<!-- START SECTION: FOOTER -->
     <footer class="page-footer dark">
+
         <div class="container">
             <div class="row">
                 <div class="col-sm-3 col-md-3 offset-md-4 mx-auto">
@@ -171,23 +237,25 @@
                 </div>
             </div>
         </div>
+
         <div class="footer-copyright">
             <p>© 2018 Copyright Text</p>
         </div>
-    </footer>
 
+    </footer>
+<!--END SECTION: FOOTER-->
+
+    
+<!-- Dependencies -->
     <script type="text/javascript" src= "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
     <script src="assets/js/smoothproducts.min.js"></script>
     <script src="assets/js/theme.js"></script>
-
-    <!-- Dependencies -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="./static/js/app.js"></script>
-
 
 </body>
 
