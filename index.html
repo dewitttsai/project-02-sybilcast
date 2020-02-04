@@ -24,7 +24,7 @@
                 id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#goto-home">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#goto-concept">Concept</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#goto-story">Story</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#goto-analysis">Analysis</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#goto-aboutus">About Us</a></li>
                 </ul>
@@ -53,61 +53,62 @@
     </div>
 </section>
 
-<section class="clean-block clean-info dark"></section>
+<section class="clean-block clean-info dark"  id="goto-story"></section>
 <!-- END SECTION: HOME -->
 
-<!-- START SECTION: CONCEPT -->
-<br id="goto-concept">
+<!-- START SECTION: STORY -->
+<br>
 <div>
-
     <section class="clean-block clean-info light">
         <div class="container">
             <div class="block-heading">
                 <br>
                 <br>
-                <h1 class="text-info">What if crime could be predicted?</h1>
-
+                <h1 class="text-info">SCENARIO</h1>
+                <h3 class="text-info">Let's say you commute the same path to work. <br> As time goes on, you cycle through the seasons and have a strange feeling that more crimes have been happening on specific times of the year.</h3>
+                <h1 class="text-info">FYI</h1>
+                <h3 class="text-info">Recent studies have shown that temperature and weather can significantly affect crime rates.</h3>
             </div>
         </div>
     </section>
 
-    <section class="clean-block clean-hero" style="background-image: url(&quot;assets/img/cold.jpg&quot;);color: rgba(9, 162, 255, 0.60);height: 118px;">
+    <section class="clean-block clean-hero" style="background-image: url(&quot;assets/img/cold.jpg&quot;);color: rgba(9, 75, 255, 0.6);height: 118px;">
         
         <div class="text">
             
-            <h2 class="textshadow">Does Weather Affect Crime Rates</h2>
-            <p>Explore below by choosing a year....</p>
+            <h2 class="textshadow">Curious to find out <em>100%</em> if crime falls when the tempearture gets low?</h2>
         </div>
     </section>
     
-    <section style="padding-bottom:10px;"class="clean-block clean-info light"> <!--//style="height: 300px;"-->
-        <div class="container">
-            <div class="block-heading">
-                <h2 class="text-info">Choose a year between 2010-2019:</h2>
-            </div>
-        </div>
-    </section>
-
     <section class="clean-block clean-info dark">
         <div class="container">
             <div class="block-heading">
-                <h2 class="text-info">Hi there, this is a bit dim.</h2>
+                <br><h2 class="text-info">Or...</h2>
             </div>
         </div>
     </section>
 
-    <!-- <main class="page landing-page"> -->
-    <section class="clean-block clean-hero" style="background-image: url(&quot;assets/img/hot.jpg&quot;);color: rgba(126, 19, 19, 0.767);height: 118px;">
+    <section class="clean-block clean-hero" style="background-image: url(&quot;assets/img/hot3.jpg&quot;);color: rgba(126, 19, 19, 0.767);height: 118px;">
         <div class="text">
-            <h2>Does Weather Affect Crime Rates</h2>
-            <p>Explore below by choosing a year....</p>
+            <h2>Wonder if felony rises when the heat gets high?</h2>
         </div>
     </section>
+
+    <section style="padding-bottom:10px;"class="clean-block clean-info light"> <!--//style="height: 300px;"-->
+        <div class="container">
+            <div class="block-heading">
+                <h3 class="text-info">SYBILCAST is being developed to answer these questions.</h3>
+                <br>
+            </div>
+        </div>
+    </section>
+    
+    <section class="clean-block clean-info dark"   id="goto-analysis"></section>
 </div>
-<!-- END SECTION: CONCEPT -->
+<!-- END SECTION: STORY -->
 
 <!-- START SECTION: ANALYSIS -->
-    <br id="goto-analysis">
+    <br>
     <div>
 
         <!-- Year Select to be fed into app.js to initialize plotly functions -->
@@ -115,8 +116,11 @@
 
             <div class="container">
                 <div class="block-heading">
-                    <h2 class="text-info">Choose a year between 2010-2019:</h2>
+                    <h1 class="text-info">ANALYSIS</h1 class="text-info">
+                    <h2 class="text-info">Seeing is believing. We'll show the data.</h2>
+                    <h2 class="text-info">Select a year.</h2>
                     <select id="selDataset" onchange="optionChanged(this.value)"></select>
+                    <br>
                 </div>
             </div>
 
@@ -187,7 +191,7 @@
             </div>
 
         </section>
-
+        <section class="clean-block clean-info dark"   id="goto-aboutus"></section>
     </div>  
 <!-- END SECTION: ANALYSIS-->
 
@@ -203,13 +207,13 @@
 
 
 <!-- START SECTION: ABOUT US -->
-    <br id="goto-aboutus">
+    
     <section class="clean-block about-us">
         <div class="container">
 
             <div class="block-heading">
                 <h2 class="text-info">About Us</h2>
-                <p>A team of four passionate coders that combined our knowledge and skills learned from the same USC Viterbi Data Bootcamp to conceptualize, develop, and launch SYBILCAST.</p>
+                <p>Four passionate coders that combined their knowledge and skills to conceptualize and design SYBILCAST.</p>
             </div>
 
             <div class="row justify-content-center">
