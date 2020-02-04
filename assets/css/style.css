@@ -17,3 +17,7 @@
   #myBtn:hover {
     background-color: #555;
   }
+
+.textshadow {
+    text-shadow:1px 1px 4px #000000;
+}

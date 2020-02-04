@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="assets/css/style.css"
 </head>
 
+<!-- OPTIONAL FEATURE: Button to assist user back to the top of the page. -->
 <body>
     <button onclick="topFunction()" id="homebutton" title="Go to top">Top</button>
 
@@ -32,12 +33,36 @@
     </nav>
 <!-- END SECTION: NAVIGATION BAR -->
 
+<section class="clean-block clean-hero" style="background-image: url(&quot;assets/img/crime_index.jpg&quot;);color: rgba(9, 162, 255, 0.20);height: 500px;" id="goto-home">
+        
+    <div class="text">
+        
+        <h2 class="textshadow">Does Weather Affect Crime Rates</h2>
+        <p>Explore below by choosing a year....</p>
+    </div>
+</section>
+
 <!-- START SECTION: CONCEPT -->
 <br id="goto-concept">
 <div>
-    <section class="clean-block clean-hero" style="background-image: url(&quot;assets/img/crime_index%20copy.jpg&quot;);color: rgba(9, 162, 255, 0.60);height: 118px;" id="goto-home">
+
+
+    <section class="clean-block clean-info dark">
+        <div class="container">
+            <div class="block-heading">
+                <br>
+                <br>
+                <h1 class="text-info">What if crime could be predicted?</h1>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="clean-block clean-hero" style="background-image: url(&quot;assets/img/cold.jpg&quot;);color: rgba(9, 162, 255, 0.60);height: 118px;">
+        
         <div class="text">
-            <h2>Does Weather Affect Crime Rates</h2>
+            
+            <h2 class="textshadow">Does Weather Affect Crime Rates</h2>
             <p>Explore below by choosing a year....</p>
         </div>
     </section>
@@ -60,7 +85,7 @@
     </section>
 
     <!-- <main class="page landing-page"> -->
-    <section class="clean-block clean-hero" style="background-image: url(&quot;assets/img/crime_index%20copy.jpg&quot;);color: rgba(9, 162, 255, 0.60);height: 118px;">
+    <section class="clean-block clean-hero" style="background-image: url(&quot;assets/img/hot.jpg&quot;);color: rgba(126, 19, 19, 0.767);height: 118px;">
         <div class="text">
             <h2>Does Weather Affect Crime Rates</h2>
             <p>Explore below by choosing a year....</p>
@@ -78,7 +103,7 @@
 
             <div class="container">
                 <div class="block-heading">
-                    <h2 class="text-info">Choose a year between 2010-2019:</h2>
+                    <h1 class="text-info">Choose a year between 2010-2019:</h1>
                     <select id="selDataset" onchange="optionChanged(this.value)"></select>
                 </div>
             </div>
@@ -91,8 +116,8 @@
 
                 <!-- SECTION: ANALYSIS, SUB: TEMPERATURE -->
                 <div style="padding-top:10px" id = "year_top" class="block-heading">
-                    <h2 class="text-info"></h2>
-                    <p></p> 
+                    <!-- <h1 class="text-info"></h1> -->
+                    <!-- <p></p>  -->
                     <div style = "padding-top:20px" class = "row">
                         <div id = "high_temp"class='col-lg-6 col-md-6'></div>
                         <div id = "low_temp" class='col-lg-6 col-md-6'></div>
@@ -101,21 +126,25 @@
                 
                 <!-- SECTION: ANALYSIS, SUB: GRAPHS -->
                 <div class="row">
-
+                    
+                    <!-- GRAPH 1 -->
                     <div id = "horibar" style="padding-right:30px" class="col-md-6 col-lg-6 col-sm-6">
-                        <p>Graph 1 Here</p>
                         <!-- <div id="chartdiv" style="width: 100%; height: 400px; background-color: #282828;" ></div> -->
                     </div>
 
                     <div class="col-md-6 col-lg-6 col-sm-6">
 
                         <div class="row">
+
+                            <!-- GRAPH 2 -->
                             <div id = "time-graph" style="padding-left:30px" class="col-md-12 col-lg-12 col-sm-12">
                                 <p>Graph 2 Here</p>
                             </div>
                         </div>
 
                         <div class="row">
+
+                            <!-- GRAPH 3 -->
                             <div class="col-md-12 col-lg-12 col-sm-12">
                                 <p style="background-color:pink;padding:20px;margin-left:30px">Graph 3 Here</p>
                                 
@@ -123,6 +152,8 @@
                         </div>
 
                         <div class="row">
+
+                            <!-- GRAPH 4 -->
                             <div class="col-md-12 col-lg-12 col-sm-12">
                                 <p style="background-color:lightseagreen;padding:20px;margin-left:30px">Graph 4 Here</p>
                                 
@@ -166,7 +197,7 @@
 
             <div class="block-heading">
                 <h2 class="text-info">About Us</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+                <p>A team of four passionate coders that combined our knowledge and skills learned from the same USC Viterbi Data Bootcamp to conceptualize, develop, and launch SYBILCAST.</p>
             </div>
 
             <div class="row justify-content-center">
@@ -174,8 +205,7 @@
                     <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar1.jpg">
                         <div class="card-body info">
                             <h4 class="card-title">Morgan Ivey</h4>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i class="icon-social-instagram"></i></a><a href="#"><i class="icon-social-twitter"></i></a></div>
+                            <!-- <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
                         </div>
                     </div>
                 </div>
@@ -184,8 +214,7 @@
                     <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar2.jpg">
                         <div class="card-body info">
                             <h4 class="card-title">Arthur&nbsp;Adjamoglian</h4>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i class="icon-social-instagram"></i></a><a href="#"><i class="icon-social-twitter"></i></a></div>
+                            <!-- <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
                         </div>
                     </div>
                 </div>
@@ -198,8 +227,7 @@
 
                         <div class="card-body info">
                             <h4 class="card-title">DeWitt Tsai</h4>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i class="icon-social-instagram"></i></a><a href="#"><i class="icon-social-twitter"></i></a></div>
+                            <!-- <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
                         </div>
 
                     </div>
@@ -209,9 +237,8 @@
                     <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar3.jpg">
 
                         <div class="card-body info">
-                            <h4 class="card-title">Ally Sanders</h4>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i class="icon-social-instagram"></i></a><a href="#"><i class="icon-social-twitter"></i></a></div>
+                            <h4 class="card-title">Hakob Antonyan</h4>
+                            <!-- <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
                         </div>
 
                     </div>
@@ -246,7 +273,7 @@
 <!--END SECTION: FOOTER-->
 
     
-<!-- Dependencies -->
+<!-- DEPENDENCIES -->
     <script type="text/javascript" src= "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
