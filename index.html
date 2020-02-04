@@ -12,10 +12,6 @@
     <link rel="stylesheet" href="assets/css/smoothproducts.css">
     <link rel="stylesheet" href="assets/css/style.css"
 
-    <!-- Underscore for groupby -->
-    <script type="text/javascript" src= 
-        "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore.js"> 
-        </script> 
 </head>
 
 <body>
@@ -36,44 +32,20 @@
     <button onclick="topFunction()" id="homebutton" title="Go to top">Top</button>
 
     <!-- <main class="page landing-page"> -->
-        <section class="clean-block clean-hero" style="background-image: url(&quot;assets/img/crime_index%20copy.jpg&quot;);color: rgba(9, 162, 255, 0.60);height: 118px;">
-            <div class="text">
-                <h2>Does Weather Affect Crime Rates</h2>
-                <p>Explore below by choosing a year....</p>
+    <section class="clean-block clean-hero" style="background-image: url(&quot;assets/img/crime_index%20copy.jpg&quot;);color: rgba(9, 162, 255, 0.60);height: 118px;">
+        <div class="text">
+            <h2>Does Weather Affect Crime Rates</h2>
+            <p>Explore below by choosing a year....</p>
+        </div>
+    </section>
+    <section style="padding-bottom:10px;"class="clean-block clean-info light"> <!--//style="height: 300px;"-->
+        <div class="container">
+            <div class="block-heading">
+                <h2 class="text-info">Choose a year between 2010-2019:</h2>
+                <select id="selDataset" onchange="optionChanged(this.value)"></select>
             </div>
-        </section>
-        <section style="padding-bottom:10px;"class="clean-block clean-info light"> <!--//style="height: 300px;"-->
-            <div class="container">
-                <div class="block-heading">
-                    <h2 class="text-info">Choose a year between 2010-2019:</h2>
-                    <select id="selDataset" onchange="optionChanged(this.value)"></select>
-                    <!-- <input type=button value="Go" onclick="goToNewPage()" /> -->
-
-                    <!-- <div class="row">
-                      <div class="col-md-12"> -->
-                        <!-- <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label style = "background-color:darkred"class="btn btn-secondary active">
-                              <input type="radio" name="options" id="option1" autocomplete="off" checked> Hot
-                            </label>
-                            <label style = "background-color:darkblue" class="btn btn-secondary">
-                              <input type="radio" name="options" id="option2" autocomplete="off"> Cold
-                            </label>
-                          </div> -->
-                          <!-- <div id = "sample-metadata" style = 'padding-top:30px'>
-
-                          </div> -->
-                        <!-- <div class="well"> -->
-                          <!-- <h5>Select a Year:</h5> -->
-                          <!-- <select style = 'display:block' id="selDataset" onchange="optionChanged(this.value)"></select> -->
-                          <!-- <select id="selDataset"></select> -->
-                        <!-- </div> -->
-                       <!-- </div>
-                    </div> -->
-
-                    <!-- <p></p> -->
-                </div>
-            </div>
-        </section>
+        </div>
+    </section>
         <!-- <div class="container"> -->
             <!-- <main class="page gallery-page"> -->
                 <section class="clean-block clean-info dark">
@@ -203,6 +175,8 @@
             <p>© 2018 Copyright Text</p>
         </div>
     </footer>
+
+    <script type="text/javascript" src= "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
