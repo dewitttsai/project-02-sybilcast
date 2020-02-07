@@ -44,7 +44,7 @@ function getHotAndCold(id) {
                 
                 //************************  D3.JSON()  ************************//
                 // Call d3.json() with the local server from app.py
-                d3.json('http://127.0.0.1:5000/').then((data) => {
+                d3.json('http://127.0.0.1:5000/data').then((data) => {
                     console.log(data)
                     // console.log(currentHotDate)
                     dataHot = data.filter(x =>x['date_occ'].substring(0,10) === currentHotDate);
