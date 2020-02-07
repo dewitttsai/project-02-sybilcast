@@ -131,7 +131,7 @@ function getTime(dataHot,dataCold) {
             },
             yaxis : {
                 title: {
-                    text: "Count of Crimes"
+                    text: "Crime Count"
                 }
             }
         };// Ends layoutTime
@@ -227,6 +227,9 @@ function getBar(dataHot, dataCold) {
         x : test['hot'],
         y: test['codes'].map((d,i) => i*3),
         text: allCodeNames,
+        marker : {
+            color: 'rgb(247, 79, 79)'
+        },
         name: 'Hot Day',
         type:'bar',
         orientation: 'h',
@@ -237,6 +240,9 @@ function getBar(dataHot, dataCold) {
         x : test['cold'],
         y: test['codes'].map((d,i) => i*3),
         text : allCodeNames,
+        marker : {
+            color : 'rgb(88, 110, 254)'
+        },
         name: 'Cold Day',
         type:'bar',
         orientation: 'h',
@@ -261,7 +267,7 @@ function getBar(dataHot, dataCold) {
         },// Ends yaxis
         xaxis : {
             title: {
-                text: "Count of Crimes"
+                text: "Crime Count"
             }
         }
     }; // Ends layout
