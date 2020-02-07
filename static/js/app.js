@@ -43,23 +43,20 @@ function getHotAndCold(id) {
                 var currentColdDate = data.filter(x => x.Year === id)[0].Date;
                 
                 //************************  D3.JSON()  ************************//
-                // Call d3.json() with the local server from app.py
+                // Call d3.json() with the local server (http://127.0.0.1:5000/data) from app.py
                 d3.json('http://127.0.0.1:5000/data').then((data) => {
                     console.log(data)
-                    // console.log(currentHotDate)
                     dataHot = data.filter(x =>x['date_occ'].substring(0,10) === currentHotDate);
                     dataCold = data.filter(x =>x['date_occ'].substring(0,10) === currentColdDate);
-                    // console.log(dataHot)
-                    // console.log(dataCold)
 
                     // Call the functions using dataHot and dataCold, the data for the hot and cold days of the year (id)
                     getTime(dataHot, dataCold);
                     getBar(dataHot, dataCold);
                     byArea(dataHot,dataCold);
                 }); //Ends d3.json()
-
             }); //Ends d3.csv() for MIN temps
         }); //Ends d3.csv() for MAX temps
+        
 };// Ends getHotAndCold(id) function
 
 // function getTime() calculates the count of crimes per time of day (formatted in a 24-hour clock)
@@ -212,15 +209,17 @@ function getBar(dataHot, dataCold) {
         
     }; //End for (intersection)
 
+    for (var i=0; i<coldOnly.length; i++) { 
+        dataCode = dataCold.filter(x => x.crm_cd === coldOnly[i].toString())[0].crm_cd_desc
+        allCodeNames.push(dataCode)
+    }; //End for (cold only)
+
     for (var i=0; i<hotOnly.length; i++) { 
         dataCode = dataHot.filter(x => x.crm_cd === hotOnly[i].toString())[0].crm_cd_desc
         allCodeNames.push(dataCode)
     }; //End for (hot only)
 
-    for (var i=0; i<coldOnly.length; i++) { 
-        dataCode = dataCold.filter(x => x.crm_cd === coldOnly[i].toString())[0].crm_cd_desc
-        allCodeNames.push(dataCode)
-    };
+
 
     // Create the trace for the hot day of the current year    
     var trace1 = {
@@ -280,8 +279,6 @@ function getBar(dataHot, dataCold) {
 // Create init() function so page loads on first dropdown option when going to the html page
 function init() {
     d3.csv("OutputData/Max_Temps_2010_2019.csv").then((data) => {
-        // var hotDays = data.map(x=>x.Date)
-        // var maxF = Object.keys(data[0])[3]
 
         // Create array to hold all years
         var years = data.map(x=>x.Year)
@@ -295,7 +292,7 @@ function init() {
     }); //Ends d3.csv() for MAX temps
 
     // Call the functions for year 2010:
-        getHotAndCold('2010')
+        getHotAndCold('2010');
         getTemp2("2010"); //Must be string
 }; // Ends init() function
 
@@ -328,7 +325,6 @@ function getTemp2(id) {
         }];
         // Create the layout object for the hot day
         var layout = {
-            // width:200,
             height:250,
             template: {
                 data: {
