@@ -42,12 +42,15 @@ function getHotAndCold(id) {
             d3.csv("OutputData/Min_Temps_2010_2019.csv").then((data) => {
                 var currentColdDate = data.filter(x => x.Year === id)[0].Date;
                 
-                // Temporarily copied the data from http://127.0.0.1:5000/ to a data.json
-                // Will change 'data.json' to 'http://127.0.0.1:5000/'
-                d3.json('data.json').then((data) => {
+                //************************  D3.JSON()  ************************//
+                // Call d3.json() with the local server from app.py
+                d3.json('http://127.0.0.1:5000/').then((data) => {
+                    console.log(data)
+                    // console.log(currentHotDate)
                     dataHot = data.filter(x =>x['date_occ'].substring(0,10) === currentHotDate);
                     dataCold = data.filter(x =>x['date_occ'].substring(0,10) === currentColdDate);
-
+                    // console.log(dataHot)
+                    // console.log(dataCold)
 
                     // Call the functions using dataHot and dataCold, the data for the hot and cold days of the year (id)
                     getTime(dataHot, dataCold);
@@ -271,7 +274,8 @@ function getBar(dataHot, dataCold) {
 // Create init() function so page loads on first dropdown option when going to the html page
 function init() {
     d3.csv("OutputData/Max_Temps_2010_2019.csv").then((data) => {
-
+        // var hotDays = data.map(x=>x.Date)
+        // var maxF = Object.keys(data[0])[3]
 
         // Create array to hold all years
         var years = data.map(x=>x.Year)
@@ -434,7 +438,8 @@ function byArea(dataHot,dataCold) {
             if (countsBoth[1]>countsBoth[0]) {
                 var color = 'red'
             } else if ((countsBoth[1]<countsBoth[0])) {
-                var color = 'blue'
+                // var color = 'rgb(40, 84, 206)'
+                var color = 'rgb(58, 100, 216)'
             };
             return color;
         };//Ends getColor() function
@@ -459,17 +464,11 @@ function byArea(dataHot,dataCold) {
             y: [0,0],
             type:'scatter',
             mode: 'markers+lines+text',
-            // text: ['C','H'],
-            textposition:'top',
-            textfont : {
-                size:10,
-                color:['blue','red']
-            },
             line : {
                 color: getColor(countsBoth[0])
             },
             marker : {
-                color: ['blue','red'],
+                color: ['rgb(19, 59, 168)','red'],
             }
         };
         var trace2 = {
@@ -477,362 +476,241 @@ function byArea(dataHot,dataCold) {
             y: [1,1],
             type:'scatter',
             mode: 'markers+lines+text',
-            // text: ['Cold','Hot'],
-            // text: ['C','H'],
-            textposition:'top',
-            textfont : {
-                size:10,
-                color:['blue','red']
-            },
             line : {
-                color: getColor(countsBoth[1])
+                color: getColor(countsBoth[1]),
             },
             marker : {
-                color: ['blue','red'],
+                color: ['rgb(19, 59, 168)','red'],
             }
-        }
+        };
         var trace3 = {
             x: countsBoth[2],
             y: [2,2],
             type:'scatter',
             mode: 'markers+lines+text',
-            // text: ['Cold','Hot'],
-            textposition:'top',
-            textfont : {
-                size:10,
-                color:['blue','red']
-            },
             line : {
                 color:getColor(countsBoth[2])
             },
             marker : {
-                color: ['blue','red'],
+                color: ['rgb(19, 59, 168)','red'],
             }
-        }
+        };
         var trace4 = {
             x: countsBoth[3],
             y: [3,3],
             type:'scatter',
             mode: 'markers+lines+text',
-            // text: ['Cold','Hot'],
-            textposition:'top',
-            textfont : {
-                size:10,
-                color:['blue','red']
-            },
             line : {
                 color:getColor(countsBoth[3])
             },
             marker : {
-                color: ['blue','red'],
+                color: ['rgb(19, 59, 168)','red'],
             }
-        }
+        };
         var trace5 = {
             x: countsBoth[4],
             y: [4,4],
             type:'scatter',
             mode: 'markers+lines+text',
-            // text: ['Cold','Hot'],
-            textposition:'top',
-            textfont : {
-                size:10,
-                color:['blue','red']
-            },
             line : {
                 color: getColor(countsBoth[4])
             },
             marker : {
-                color: ['blue','red'],
+                color: ['rgb(19, 59, 168)','red'],
             }
-        }
+        };
         var trace6 = {
             x: countsBoth[5],
             y: [5,5],
             type:'scatter',
             mode: 'markers+lines+text',
-            // text: ['Cold','Hot'],
-            textposition:'top',
-            textfont : {
-                size:10,
-                color:['blue','red']
-            },
             line : {
                 color: getColor(countsBoth[5])
             },
             marker : {
-                color: ['blue','red'],
+                color: ['rgb(19, 59, 168)','red'],
             }
-        }
+        };
         var trace7 = {
             x: countsBoth[6],
             y: [6,6],
             type:'scatter',
             mode: 'markers+lines+text',
-            // text: ['Cold','Hot'],
-            textposition:'top',
-            textfont : {
-                size:10,
-                color:['blue','red']
-            },
             line : {
                 color: getColor(countsBoth[6])
             },
             marker : {
-                color: ['blue','red'],
+                color: ['rgb(19, 59, 168)','red'],
             }
-        }
+        };
         var trace8 = {
             x: countsBoth[7],
             y: [7,7],
             type:'scatter',
             mode: 'markers+lines+text',
-            // text: ['Cold','Hot'],
-            textposition:'top',
-            textfont : {
-                size:10,
-                color:['blue','red']
-            },
             line : {
                 color: getColor(countsBoth[7])
             },
             marker : {
-                color: ['blue','red'],
+                color: ['rgb(19, 59, 168)','red'],
             }
-        }
+        };
         var trace9 = {
             x: countsBoth[8],
             y: [8,8],
             type:'scatter',
             mode: 'markers+lines+text',
-            // text: ['Cold','Hot'],
-            textposition:'top',
-            textfont : {
-                size:10,
-                color:['blue','red']
-            },
             line : {
                 color: getColor(countsBoth[8])
             },
             marker : {
-                color: ['blue','red'],
+                color: ['rgb(19, 59, 168)','red'],
             }
-        }
+        };
         var trace10 = {
             x: countsBoth[9],
             y: [9,9],
             type:'scatter',
             mode: 'markers+lines+text',
-            // text: ['Cold','Hot'],
-            textposition:'top',
-            textfont : {
-                size:10,
-                color:['blue','red']
-            },
             line : {
                 color: getColor(countsBoth[9])
             },
             marker : {
-                color: ['blue','red'],
+                color: ['rgb(19, 59, 168)','red'],
             }
-        }
+        };
         var trace11 = {
             x: countsBoth[10],
             y: [10,10],
             type:'scatter',
             mode: 'markers+lines+text',
-            // text: ['Cold','Hot'],
-            textposition:'top',
-            textfont : {
-                size:10,
-                color:['blue','red']
-            },
             line : {
                 color: getColor(countsBoth[10])
             },
             marker : {
-                color: ['blue','red'],
+                color: ['rgb(19, 59, 168)','red'],
             }
-        }
+        };
         var trace12 = {
             x: countsBoth[11],
             y: [11,11],
             type:'scatter',
             mode: 'markers+lines+text',
-            // text: ['Cold','Hot'],
-            textposition:'top',
-            textfont : {
-                size:10,
-                color:['blue','red']
-            },
             line : {
                 color: getColor(countsBoth[11])
             },
             marker : {
-                color: ['blue','red'],
+                color: ['rgb(19, 59, 168)','red'],
             }
-        }
+        };
         var trace13 = {
             x: countsBoth[12],
             y: [12,12],
             type:'scatter',
             mode: 'markers+lines+text',
-            // text: ['Cold','Hot'],
-            textposition:'top',
-            textfont : {
-                size:10,
-                color:['blue','red']
-            },
             line : {
                 color: getColor(countsBoth[12])
             },
             marker : {
-                color: ['blue','red'],
+                color: ['rgb(19, 59, 168)','red'],
             }
-        }
+        };
         var trace14 = {
             x: countsBoth[13],
             y: [13,13],
             type:'scatter',
             mode: 'markers+lines+text',
-            // text: ['Cold','Hot'],
-            textposition:'top',
-            textfont : {
-                size:10,
-                color:['blue','red']
-            },
             line : {
                 color:getColor(countsBoth[13])
             },
             marker : {
-                color: ['blue','red'],
+                color: ['rgb(19, 59, 168)','red'],
             }
-        }
+        };
         var trace15 = {
             x: countsBoth[14],
             y: [14,14],
             type:'scatter',
             mode: 'markers+lines+text',
-            // text: ['Cold','Hot'],
-            textposition:'top',
-            textfont : {
-                size:10,
-                color:['blue','red']
-            },
             line : {
                 color: getColor(countsBoth[14])
             },
             marker : {
-                color: ['blue','red'],
+                color: ['blrgb(19, 59, 168)ue','red'],
             }
-        }
+        };
         var trace16 = {
             x: countsBoth[15],
             y: [15,15],
             type:'scatter',
             mode: 'markers+lines+text',
-            // text: ['Cold','Hot'],
-            textposition:'top',
-            textfont : {
-                size:10,
-                color:['blue','red']
-            },
             line : {
                 color: getColor(countsBoth[15])
             },
             marker : {
-                color: ['blue','red'],
+                color: ['rgb(19, 59, 168)','red'],
             }
-        }
+        };
         var trace17 = {
             x: countsBoth[16],
             y: [16,16],
             type:'scatter',
             mode: 'markers+lines+text',
-            // text: ['Cold','Hot'],
-            textposition:'top',
-            textfont : {
-                size:10,
-                color:['blue','red']
-            },
             line : {
                 color:getColor(countsBoth[16])
             },
             marker : {
-                color: ['blue','red'],
+                color: ['rgb(19, 59, 168)','red'],
             }
-        }
+        };
         var trace18 = {
             x: countsBoth[17],
             y: [17,17],
             type:'scatter',
             mode: 'markers+lines+text',
-            // text: ['Cold','Hot'],
-            textposition:'top',
-            textfont : {
-                size:10,
-                color:['blue','red']
-            },
             line : {
                 color:getColor(countsBoth[17])
             },
             marker : {
-                color: ['blue','red'],
+                color: ['rgb(19, 59, 168)','red'],
             }
-        }
+        };
         var trace19 = {
             x: countsBoth[18],
             y: [18,18],
             type:'scatter',
             mode: 'markers+lines+text',
-            // text: ['Cold','Hot'],
-            textposition:'top',
-            textfont : {
-                size:10,
-                color:['blue','red']
-            },
             line : {
                 color:getColor(countsBoth[18])
             },
             marker : {
-                color: ['blue','red'],
+                color: ['rgb(19, 59, 168)','red'],
             }
-        }
+        };
         var trace20 = {
             x: countsBoth[19],
             y: [19,19],
             type:'scatter',
             mode: 'markers+lines+text',
-            // text: ['Cold','Hot'],
-            textposition:'top',
-            textfont : {
-                size:10,
-                color:['blue','red']
-            },
             line : {
                 color:getColor(countsBoth[19])
             },
             marker : {
-                color: ['blue','red'],
+                color: ['rgb(19, 59, 168)','red'],
             }
-        }
+        };
         var trace21 = {
             x: countsBoth[20],
             y: [20,20],
             type:'scatter',
             mode: 'markers+lines+text',
-            // text: ['Cold','Hot'],
-            textposition:'top',
-            textfont : {
-                size:10,
-                color:['blue','red']
-            },
             line : {
                 color:getColor(countsBoth[20])
             },
             marker : {
-                color: ['blue','red'],
+                color: ['rgb(19, 59, 168)','red'],
             }
-        }
+        };
 
         // Set data to an array of all the traces
         data1 = [trace1,trace2,trace3,trace4,trace5,trace6,trace7,trace8,trace9,trace10,trace11,trace12,trace13,trace14,trace15,trace16,trace17,trace18,trace19,trace20,trace21]
@@ -860,194 +738,228 @@ function byArea(dataHot,dataCold) {
             },
             annotations: [
                 {
-                x: countsBoth[0][1],
-                y: 0,
-                showarrow: true,
-                arrowcolor:getColor(countsBoth[0]),
-                arrowhead: 3,
-                ax: getAX(countsBoth[0]),
-                ay: 0
+                    x: countsBoth[0][1],
+                    y: 0,
+                    showarrow: true,
+                    arrowcolor:getColor(countsBoth[0]),
+                    arrowhead: 3,
+                    ax: getAX(countsBoth[0]),
+                    ay: 0
+                },{
+                    x: countsBoth[1][1],
+                    y: 1,
+                    showarrow: true,
+                    arrowcolor:getColor(countsBoth[1]),
+                    arrowhead: 3,
+                    ax: getAX(countsBoth[1]),
+                    ay: 0
+                },{
+                    x: countsBoth[2][1],
+                    y: 2,
+                    showarrow: true,
+                    arrowcolor:getColor(countsBoth[2]),
+                    arrowhead: 3,
+                    ax: getAX(countsBoth[2]),
+                    ay: 0
+                },{
+                    x: countsBoth[3][1],
+                    y: 3,
+                    showarrow: true,
+                    arrowcolor:getColor(countsBoth[3]),
+                    arrowhead: 3,
+                    ax: getAX(countsBoth[3]),
+                    ay: 0
+                },{
+                    x: countsBoth[4][1],
+                    y: 4,
+                    showarrow: true,
+                    arrowcolor:getColor(countsBoth[4]),
+                    arrowhead: 3,
+                    ax: getAX(countsBoth[4]),
+                    ay: 0
+                },{
+                    x: countsBoth[5][1],
+                    y: 5,
+                    showarrow: true,
+                    arrowcolor:getColor(countsBoth[5]),
+                    arrowhead: 3,
+                    ax: getAX(countsBoth[5]),
+                    ay: 0
+                },{
+                    x: countsBoth[6][1],
+                    y: 6,
+                    showarrow: true,
+                    arrowcolor:getColor(countsBoth[6]),
+                    arrowhead: 3,
+                    ax: getAX(countsBoth[6]),
+                    ay: 0
+                },{
+                    x: countsBoth[7][1],
+                    y: 7,
+                    showarrow: true,
+                    arrowcolor:getColor(countsBoth[7]),
+                    arrowhead: 3,
+                    ax: getAX(countsBoth[7]),
+                    ay: 0
+                },{
+                    x: countsBoth[8][1],
+                    y: 8,
+                    showarrow: true,
+                    arrowcolor:getColor(countsBoth[8]),
+                    arrowhead: 3,
+                    ax: getAX(countsBoth[8]),
+                    ay: 0
+                },{
+                    x: countsBoth[9][1],
+                    y: 9,
+                    showarrow: true,
+                    arrowcolor:getColor(countsBoth[9]),
+                    arrowhead: 3,
+                    ax: getAX(countsBoth[9]),
+                    ay: 0
+                },{
+                    x: countsBoth[10][1],
+                    y: 10,
+                    showarrow: true,
+                    arrowcolor:getColor(countsBoth[10]),
+                    arrowhead: 3,
+                    ax: getAX(countsBoth[10]),
+                    ay: 0
+                },{
+                    x: countsBoth[11][1],
+                    y: 11,
+                    showarrow: true,
+                    arrowcolor:getColor(countsBoth[11]),
+                    arrowhead: 3,
+                    ax: getAX(countsBoth[11]),
+                    ay: 0
+                },{
+                    x: countsBoth[12][1],
+                    y: 12,
+                    showarrow: true,
+                    arrowcolor:getColor(countsBoth[12]),
+                    arrowhead: 3,
+                    ax: getAX(countsBoth[12]),
+                    ay: 0
+                },{
+                    x: countsBoth[13][1],
+                    y: 13,
+                    showarrow: true,
+                    arrowcolor:getColor(countsBoth[13]),
+                    arrowhead: 3,
+                    ax: getAX(countsBoth[13]),
+                    ay: 0
+                },{
+                    x: countsBoth[14][1],
+                    y: 14,
+                    showarrow: true,
+                    arrowcolor:getColor(countsBoth[14]),
+                    arrowhead: 3,
+                    ax: getAX(countsBoth[14]),
+                    ay: 0
+                },{
+                    x: countsBoth[15][1],
+                    y: 15,
+                    showarrow: true,
+                    arrowcolor:getColor(countsBoth[15]),
+                    arrowhead: 3,
+                    ax: getAX(countsBoth[15]),
+                    ay: 0
+                },{
+                    x: countsBoth[16][1],
+                    y: 16,
+                    showarrow: true,
+                    arrowcolor:getColor(countsBoth[16]),
+                    arrowhead: 3,
+                    ax: getAX(countsBoth[16]),
+                    ay: 0
+                },{
+                    x: countsBoth[17][1],
+                    y: 17,
+                    showarrow: true,
+                    arrowcolor:getColor(countsBoth[17]),
+                    arrowhead: 3,
+                    ax: getAX(countsBoth[17]),
+                    ay: 0
+                },{
+                    x: countsBoth[18][1],
+                    y: 18,
+                    showarrow: true,
+                    arrowcolor:getColor(countsBoth[18]),
+                    arrowhead: 3,
+                    ax: getAX(countsBoth[18]),
+                    ay: 0
+                },{
+                    x: countsBoth[19][1],
+                    y: 19,
+                    showarrow: true,
+                    arrowcolor:getColor(countsBoth[19]),
+                    arrowhead: 3,
+                    ax: getAX(countsBoth[19]),
+                    ay: 0
+                },{
+                    x: countsBoth[20][1],
+                    y: 20,
+                    showarrow: true,
+                    arrowcolor:getColor(countsBoth[20]),
+                    arrowhead: 3,
+                    ax: getAX(countsBoth[20]),
+                    ay: 0
                 },
+                // Add the Cold and Hot text to the top of the graph
                 {
-                x: countsBoth[1][1],
-                y: 1,
-                showarrow: true,
-                arrowcolor:getColor(countsBoth[1]),
-                arrowhead: 3,
-                ax: getAX(countsBoth[1]),
-                ay: 0
-                },
-                {
-                x: countsBoth[2][1],
-                y: 2,
-                showarrow: true,
-                arrowcolor:getColor(countsBoth[2]),
-                arrowhead: 3,
-                ax: getAX(countsBoth[2]),
-                ay: 0
-                },
-                {
-                x: countsBoth[3][1],
-                y: 3,
-                showarrow: true,
-                arrowcolor:getColor(countsBoth[3]),
-                arrowhead: 3,
-                ax: getAX(countsBoth[3]),
-                ay: 0
-                },
-                {
-                x: countsBoth[4][1],
-                y: 4,
-                showarrow: true,
-                arrowcolor:getColor(countsBoth[4]),
-                arrowhead: 3,
-                ax: getAX(countsBoth[4]),
-                ay: 0
-                },
-                {
-                x: countsBoth[5][1],
-                y: 5,
-                showarrow: true,
-                arrowcolor:getColor(countsBoth[5]),
-                arrowhead: 3,
-                ax: getAX(countsBoth[5]),
-                ay: 0
-                },
-                {
-                x: countsBoth[6][1],
-                y: 6,
-                showarrow: true,
-                arrowcolor:getColor(countsBoth[6]),
-                arrowhead: 3,
-                ax: getAX(countsBoth[6]),
-                ay: 0
-                },
-                {
-                x: countsBoth[7][1],
-                y: 7,
-                showarrow: true,
-                arrowcolor:getColor(countsBoth[7]),
-                arrowhead: 3,
-                ax: getAX(countsBoth[7]),
-                ay: 0
-                },
-                {
-                x: countsBoth[8][1],
-                y: 8,
-                showarrow: true,
-                arrowcolor:getColor(countsBoth[8]),
-                arrowhead: 3,
-                ax: getAX(countsBoth[8]),
-                ay: 0
-                },
-                {
-                x: countsBoth[9][1],
-                y: 9,
-                showarrow: true,
-                arrowcolor:getColor(countsBoth[9]),
-                arrowhead: 3,
-                ax: getAX(countsBoth[9]),
-                ay: 0
-                },
-                {
-                x: countsBoth[10][1],
-                y: 10,
-                showarrow: true,
-                arrowcolor:getColor(countsBoth[10]),
-                arrowhead: 3,
-                ax: getAX(countsBoth[10]),
-                ay: 0
-                },
-                {
-                x: countsBoth[11][1],
-                y: 11,
-                showarrow: true,
-                arrowcolor:getColor(countsBoth[11]),
-                arrowhead: 3,
-                ax: getAX(countsBoth[11]),
-                ay: 0
-                },
-                {
-                x: countsBoth[12][1],
-                y: 12,
-                showarrow: true,
-                arrowcolor:getColor(countsBoth[12]),
-                arrowhead: 3,
-                ax: getAX(countsBoth[12]),
-                ay: 0
-                },
-                {
-                x: countsBoth[13][1],
-                y: 13,
-                showarrow: true,
-                arrowcolor:getColor(countsBoth[13]),
-                arrowhead: 3,
-                ax: getAX(countsBoth[13]),
-                ay: 0
-                },
-                {
-                x: countsBoth[14][1],
-                y: 14,
-                showarrow: true,
-                arrowcolor:getColor(countsBoth[14]),
-                arrowhead: 3,
-                ax: getAX(countsBoth[14]),
-                ay: 0
-                },
-                {
-                x: countsBoth[15][1],
-                y: 15,
-                showarrow: true,
-                arrowcolor:getColor(countsBoth[15]),
-                arrowhead: 3,
-                ax: getAX(countsBoth[15]),
-                ay: 0
-                },
-                {
-                x: countsBoth[16][1],
-                y: 16,
-                showarrow: true,
-                arrowcolor:getColor(countsBoth[16]),
-                arrowhead: 3,
-                ax: getAX(countsBoth[16]),
-                ay: 0
-                },
-                {
-                x: countsBoth[17][1],
-                y: 17,
-                showarrow: true,
-                arrowcolor:getColor(countsBoth[17]),
-                arrowhead: 3,
-                ax: getAX(countsBoth[17]),
-                ay: 0
-                },
-                {
-                x: countsBoth[18][1],
-                y: 18,
-                showarrow: true,
-                arrowcolor:getColor(countsBoth[18]),
-                arrowhead: 3,
-                ax: getAX(countsBoth[18]),
-                ay: 0
-                },
-                {
-                x: countsBoth[19][1],
-                y: 19,
-                showarrow: true,
-                arrowcolor:getColor(countsBoth[19]),
-                arrowhead: 3,
-                ax: getAX(countsBoth[19]),
-                ay: 0
-                },
-                {
-                x: countsBoth[20][1],
-                y: 20,
-                showarrow: true,
-                arrowcolor:getColor(countsBoth[20]),
-                arrowhead: 3,
-                ax: getAX(countsBoth[20]),
-                ay: 0
-                }     
+                    x: countsBoth[20][1],
+                    y: 21,
+                    text : 'Hot',
+                    font : {
+                        color: 'white',
+                        size:14
+                    },
+                    showarrow: false,
+                    ax: 0,
+                    ay: -20,
+                    bordercolor: 'rgb(220, 80, 99)',
+                    borderwidth: 1,
+                    borderpad: 3,
+                    bgcolor: 'rgb(213, 27, 64)',
+                    opacity: 0.8
+                },{
+                    x: countsBoth[20][1],
+                    y: 20.5,
+                    text : '|',
+                    font : {
+                        size:16
+                    },
+                    showarrow: false,
+                    ax: 0,
+                    ay: -20
+                },{
+                    x: countsBoth[20][0],
+                    y: 21,
+                    text : 'Cold',
+                    showarrow: false,
+                    font : {
+                        color: 'white',
+                        size:14
+                    },
+                    ax: 0,
+                    ay: -20,
+                    bordercolor: 'rgb(39, 118, 209)',
+                    borderwidth: 1,
+                    borderpad: 3,
+                    bgcolor: 'rgb(39, 118, 209)',
+                    opacity: 0.8
+                },{
+                    x: countsBoth[20][0],
+                    y: 20.5,
+                    text : '|',
+                    font : {
+                        size:16
+                    },
+                    showarrow: false,
+                    ax: 0,
+                    ay: -20
+                }         
             ] // Ends annotations
         }; // Ends layout
 
